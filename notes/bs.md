@@ -21,7 +21,11 @@ Note: "BS" stands for BrainStorming.
     doesn't quite do what the problem requires; it's only available to
     other members of the same school or corporate group account.
 
-    
+    There's also a Django app, django-appointments, that probably does
+    most of what is asked of in this demo, but... I think I'd like to
+    take a crack at it with Flask (which I don't know), Psycopg2, and
+    doing most of the work (including a lot of the business logic) in
+    Postgres, just to see if I can.
 
 ## Solution requirements:
 
