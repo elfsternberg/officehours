@@ -1,4 +1,5 @@
-Re-learning how to install Postgres (*Sigh)
+# Re-learning how to install Postgres (*Sigh)
+## WITH Postgres 9.4
 
 CREATE DATABASE officehours;
 CREATE USER officehours;
@@ -16,17 +17,15 @@ CREATE EXTENSION citext;
 CREATE EXTENSION btree_gist; 
 CREATE EXTENSION plv8; 
 
-#
 
-What can I do?
-    1) Add users and make them clients.
-    2) Add users and make them staff.
-    3) Allocate a block of time as "office hours"
-    4) Allocate a block of time as an "appointment."
 
-NEXT: Psycopg2
+# What can I do?
 
-** Progress: Everything works in psycopg2 EXCEPT add_appointment, which
-is very distressing.  Really, _really_ don't want to take that
-functionality and put it into the middle tier.  It's rock-solid business
-logic; it belongs in the database as a constraint.
+1) Add users and make them clients.
+2) Add users and make them staff.
+3) Allocate a block of time as "office hours"
+4) Allocate a block of time as an "appointment."
+
+## Progress:
+
+Everything works in psycopg2.

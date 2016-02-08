@@ -15,6 +15,14 @@ Note: "BS" stands for BrainStorming.
     slot is booked, other clients should not be able to book that slot
     with the same coach.
 
+## Alternatives
+
+    Google Calendar offers an "office hours" appointment mechanism.  It
+    doesn't quite do what the problem requires; it's only available to
+    other members of the same school or corporate group account.
+
+    
+
 ## Solution requirements:
 
     * Data Store
@@ -175,7 +183,12 @@ TODO Postgres range example
 TODO Deliver home page
 TODO Deliver retreivals
     
-              
+---
+
+Quick thoughts:
+
+Craft views or 
+
 
 
     

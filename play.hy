@@ -7,7 +7,6 @@
 (defn connect []
    (psycopg2.connect "host='localhost' dbname='officehours' user='officehours' password='eatabug'"))
 
-
 (def users [
             (, "Alice" "alice@example.com")
             (, "Bob" "bob@example.com")
@@ -58,16 +57,22 @@
   (.execute curs "INSERT INTO officehours (staff_id, during) VALUES (2, '[2015-02-07 12:00, 2015-02-07 15:00)');")
   (.commit conn))
 
+
+
+;      [ops ["SELECT add_appointment(3, '[2015-02-07 10:00, 2015-02-07 10:30)');"
+;            "SELECT add_appointment(4, '[2015-02-07 10:30, 2015-02-07 11:00)');"
+;            "SELECT add_appointment(5, '[2015-02-07 13:00, 2015-02-07 13:30)');"
+;            "SELECT add_appointment(6, '[2015-02-07 13:30, 2015-02-07 14:00)');"]]]
+
+
 (let [[conn (connect)]
       [curs (.cursor conn)]
-      [ops ["SELECT add_appointment(3, '[2015-02-07 10:00, 2015-02-07 10:30)');"
-            "SELECT add_appointment(4, '[2015-02-07 10:30, 2015-02-07 11:00)');"
-            "SELECT add_appointment(5, '[2015-02-07 13:00, 2015-02-07 13:30)');"
-            "SELECT add_appointment(6, '[2015-02-07 13:30, 2015-02-07 14:00)');"]]]
-
+      [ops [(, 3 "[2015-02-07 10:00, 2015-02-07 10:30)")
+            (, 4 "[2015-02-07 10:30, 2015-02-07 11:00)")
+            (, 5 "[2015-02-07 13:00, 2015-02-07 13:30)")
+            (, 6 "[2015-02-07 13:30, 2015-02-07 14:00)")]]]
   (for [op ops]
-    (print op)
-    (.execute curs op)
+    (.callproc curs "add_appointment" op)
     (.commit conn)))
 
 (let [[conn (connect)]
