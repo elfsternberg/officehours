@@ -24,5 +24,5 @@ Start with initializing the virtual environment and Postgres
     
 Current functionality is demonstrated with:
 
-$ psql -h localhost -U officehours -d officehours -f officehours.sql
-$ hy play.hy
+    $ psql -h localhost -U officehours -d officehours -f officehours.sql
+    $ hy play.hy
