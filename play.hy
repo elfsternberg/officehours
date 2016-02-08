@@ -60,10 +60,10 @@
 
 (let [[conn (connect)]
       [curs (.cursor conn)]
-      [ops ["PERFORM add_appointment(3, '[2015-02-07 10:00, 2015-02-07 10:30)');"
-            "PERFORM add_appointment(4, '[2015-02-07 10:30, 2015-02-07 11:00)');"
-            "PERFORM add_appointment(5, '[2015-02-07 13:00, 2015-02-07 13:30)');"
-            "PERFORM add_appointment(6, '[2015-02-07 13:30, 2015-02-07 14:00)');"]]]
+      [ops ["SELECT add_appointment(3, '[2015-02-07 10:00, 2015-02-07 10:30)');"
+            "SELECT add_appointment(4, '[2015-02-07 10:30, 2015-02-07 11:00)');"
+            "SELECT add_appointment(5, '[2015-02-07 13:00, 2015-02-07 13:30)');"
+            "SELECT add_appointment(6, '[2015-02-07 13:30, 2015-02-07 14:00)');"]]]
 
   (for [op ops]
     (print op)

@@ -13,6 +13,8 @@ GRANT ALL PRIVILEGES ON DATABASE officehours TO officehours;
 
 -- Enable case-insensitive matches on some text columns, good for email
 CREATE EXTENSION citext; 
+CREATE EXTENSION btree_gist; 
+CREATE EXTENSION plv8; 
 
 #
 

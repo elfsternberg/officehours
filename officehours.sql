@@ -120,8 +120,8 @@ IF EXISTS (SELECT appointments.id FROM appointments WHERE client_id IN (
                                  SELECT staff_id FROM relationship WHERE client_id = q_client_id))
                                   AND (q_timerange && appointments.during)) THEN
    RAISE EXCEPTION 'That appointment slot is already taken.';
-INSERT INTO appointments (client_id, during) SELECT q_client_id, q_timerange;
 END IF;
+INSERT INTO appointments (client_id, during) SELECT q_client_id, q_timerange;
 END
 $$ LANGUAGE plpgsql;
 
