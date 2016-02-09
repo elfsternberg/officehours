@@ -18,6 +18,8 @@
         [ld (.isoformat (getattr (get d 0) "lower"))]]
     (, ld ud)))
 
+; This is purely for demonstration purposes.
+
 (with-decorator 
   (.route app "/") 
   (defn hello [] 
