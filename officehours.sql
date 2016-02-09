@@ -101,8 +101,12 @@ CREATE VIEW staff_client_relationships AS
                INNER JOIN client_members ON relationship.client_id = client_members.client_id);
 
 CREATE VIEW staff_appointments AS
-       (SELECT staff_name, staff_client_relationships.staff_id AS staff_id,
-               client_name, staff_client_relationships.client_id AS client_id, during 
+       (SELECT staff_name, 
+               staff_client_relationships.staff_id AS staff_id, 
+               client_name, 
+               staff_client_relationships.client_id AS client_id, 
+               appointments.id AS appointment_id,
+               during 
         FROM appointments INNER JOIN staff_client_relationships 
                           ON appointments.client_id = staff_client_relationships.client_id);
 
