@@ -25,6 +25,11 @@
   (defn home []
     (send-from-directory "static" "index.html")))
 
+(with-decorator
+  (.route app "/oh/hours/<start:start>")
+  (print start)
+  (jsonify { start: start }))
+
 ;(with-decorator 
 ;  (.route app "/") 
 ;  (defn hello [] 
