@@ -26,9 +26,30 @@
     (send-from-directory "static" "index.html")))
 
 (with-decorator
-  (.route app "/oh/hours/<start:start>")
-  (print start)
-  (jsonify { start: start }))
+  (.route app "/index.js")
+  (defn index []
+    (send-from-directory "static" "index.js")))
+
+(with-decorator
+  (.route app "/officehours.js")
+  (defn officehours []
+    (send-from-directory "static" "officehours.js")))
+
+(with-decorator
+  (.route app "/lib/<path:path>")
+  (defn lib [path]
+    (send-from-directory "static/lib" path)))
+
+(with-decorator
+  (.route app "/oh/hours/<path:start>")
+  (defn defhours [start]
+    (jsonify { "start" start })))
+
+(with-decorator
+  (.route app "/oh/hours/<path:start>")
+  (defn hours [start]
+    (print start)
+    (jsonify { "start" start })))
 
 ;(with-decorator 
 ;  (.route app "/") 

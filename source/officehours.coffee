@@ -10,13 +10,13 @@ define [
     diff = d.getDate() - day + (if day == 0 then -6 else 1)
     new Date d.setDate diff
 
-  class Officehours
+  class OfficeHours extends Backbone.Model
     start: null,
 
     url: ->
-      if start isintanceof Date then "/oh/hours/#{urlEncode start}" else "/oh/hours/"
+      if @start instanceof Date then "/oh/hours/#{encodeURIComponent @start}" else "/oh/hours/"
 
-    initialize:
+    initialize: (model, option) ->
       @start = monday(new Date)
 
   # This is going to go with the Google idea of a view and overlays:
@@ -25,22 +25,20 @@ define [
     
   class Appointments extends Backbone.View
   
-  class OfficeHours extends Backbone.View
+  class OfficeHoursView extends Backbone.View
     
   class DayView extends Backbone.View
     
       
   class CalendarView extends Backbone.View
-    className 'calendar'
+    className: 'calendar'
     
-
-    events
+    events:
       'click .forward': "nextWeek"
       'click .backward': "lastWeek"
 
     initialize: (options) ->
-      
 
   ->
-    officehours = new OfficeHours
-    $.when(officehours.fetch()).then(console.log(officehours.get('start')))
+    officehours = new OfficeHours()
+    $.when(officehours.fetch()).then(console.log(officehours))
