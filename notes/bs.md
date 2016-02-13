@@ -27,6 +27,16 @@ Note: "BS" stands for BrainStorming.
     doing most of the work (including a lot of the business logic) in
     Postgres, just to see if I can.
 
+## What have other people done?
+
+    I wondered how other people solved the problem of constraint.
+    Google doesn't let you see more than a month at a time, but one of
+    its tasks is to assemble of view that may incorporate dozens of
+    underlying calendars.  On the other hand, assuming one person had
+    every half-hour booked with a unique task for a ten hour day, six
+    days a week without breaks, that's only 6240 individual items, well
+    within the performant range of a tool like Backbone or React.
+
 ## Solution requirements:
 
     * Data Store

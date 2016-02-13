@@ -16,7 +16,7 @@ GRANT ALL PRIVILEGES ON DATABASE officehours TO officehours;
 CREATE EXTENSION citext; 
 CREATE EXTENSION btree_gist; 
 CREATE EXTENSION plv8; 
-
+be
 
 
 # What can I do?
@@ -28,4 +28,4 @@ CREATE EXTENSION plv8;
 
 ## Progress:
 
-Everything works in psycopg2.
+## Retrieve "this week" with Flask.
